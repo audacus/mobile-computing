@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">mobile-computing</string>
+    <string name="log_something">log something</string>
+    <string name="log_tag">my_log_tag</string>
+    <string name="hello_world">Hello, world!</string>
+    <string name="intent_text">Text von abstraktem Intent</string>
+    <string name="what_to_log">what to log?</string>
+    <string name="mime_text_plain">text/plain</string>
+    <string name="what_to_share">what to share?</string>
+    <string name="go_to_main">go to main</string>
+    <string name="go_to_other">go to other</string>
+    <string name="start">start</string>
+    <string name="stop">stop</string>
+</resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="counterViewModel"
+            type="ch.hftm.mobilecomputing.CounterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".OtherActivity">
+
+        <Button
+            android:id="@+id/buttonGoToMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_to_main"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/start"
+            android:enabled="@{!counterViewModel.isCounting}"
+            android:onClick="@{() -> counterViewModel.onStart()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonGoToMain" />
+
+        <TextView
+            android:id="@+id/textViewCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@{Integer.toString(counterViewModel.counter)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonStart" />
+
+        <Button
+            android:id="@+id/buttonStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/stop"
+            android:enabled="@{counterViewModel.isCounting}"
+            android:onClick="@{() -> counterViewModel.onStop()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCounter" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
