@@ -14,14 +14,13 @@ public class ShareActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);
 
-        // get data from intent
+        // get intent
         var intent = getIntent();
 
         // check intent type
         if (intent.getType().equals(getString(R.string.mime_text_plain))) {
-            // get text and set to view
-            String intentText = intent.getStringExtra(Intent.EXTRA_TEXT);
-            ((TextView) findViewById(R.id.textViewIntentText)).setText(intentText);
+            // get text from intent and set to view
+            ((TextView) findViewById(R.id.textViewIntentText)).setText(intent.getStringExtra(Intent.EXTRA_TEXT));
         }
     }
 }
