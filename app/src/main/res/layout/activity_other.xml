@@ -30,7 +30,6 @@
             android:layout_marginTop="32dp"
             android:text="@string/start"
             android:enabled="@{!counterViewModel.isCounting}"
-            android:onClick="@{() -> counterViewModel.onStart()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonGoToMain" />
@@ -53,7 +52,6 @@
             android:layout_marginTop="32dp"
             android:text="@string/stop"
             android:enabled="@{counterViewModel.isCounting}"
-            android:onClick="@{() -> counterViewModel.onStop()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewCounter" />

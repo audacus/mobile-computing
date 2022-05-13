@@ -25,6 +25,8 @@ public class OtherActivity extends AppCompatActivity {
         binding.setCounterViewModel(this.counterViewModel);
 
         findViewById(R.id.buttonGoToMain).setOnClickListener(this::goToMain);
+        findViewById(R.id.buttonStart).setOnClickListener((v) -> this.counterViewModel.onStart());
+        findViewById(R.id.buttonStop).setOnClickListener((v) -> this.counterViewModel.onStop());
 
         this.startCountLoop();
     }
