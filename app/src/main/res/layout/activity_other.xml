@@ -7,7 +7,7 @@
 
         <variable
             name="counterViewModel"
-            type="ch.hftm.mobilecomputing.CounterViewModel" />
+            type="ch.hftm.mobilecomputing.viewmodel.CounterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

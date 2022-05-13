@@ -9,6 +9,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
 import ch.hftm.mobilecomputing.databinding.ActivityOtherBinding;
+import ch.hftm.mobilecomputing.service.MusicService;
+import ch.hftm.mobilecomputing.viewmodel.CounterViewModel;
 
 public class OtherActivity extends AppCompatActivity {
 

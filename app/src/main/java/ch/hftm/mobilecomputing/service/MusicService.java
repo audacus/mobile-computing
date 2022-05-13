@@ -1,9 +1,11 @@
-package ch.hftm.mobilecomputing;
+package ch.hftm.mobilecomputing.service;
 
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
+
+import ch.hftm.mobilecomputing.R;
 
 public class MusicService extends Service {
 
@@ -31,7 +33,10 @@ public class MusicService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        this.mediaPlayer.pause();
+        if (this.mediaPlayer == null || !this.mediaPlayer.isPlaying()) return;
+
+        this.mediaPlayer.stop();
+        this.mediaPlayer.release();
     }
 
     @Override
