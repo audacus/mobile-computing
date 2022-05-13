@@ -10,6 +10,8 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String TAG = "my_log_tag";
+
     private EditText editTextLogMessage;
     private EditText editTextIntentMessage;
 
@@ -17,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Log.i(TAG, "onCreate()");
 
         findViewById(R.id.buttonLogSomething).setOnClickListener(this::logSomething);
         findViewById(R.id.imageButtonSendIntent).setOnClickListener(this::sendIntent);
@@ -27,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void logSomething(View view) {
-        Log.i(getString(R.string.log_tag), this.editTextLogMessage.getText().toString());
+        Log.i(TAG, this.editTextLogMessage.getText().toString());
     }
 
     public void sendIntent(View view) {
@@ -44,5 +48,41 @@ public class MainActivity extends AppCompatActivity {
         textIntent.putExtra(Intent.EXTRA_TEXT, this.editTextIntentMessage.getText().toString());
         textIntent.setType(getString(R.string.mime_text_plain));
         startActivity(textIntent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, "onStart()");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume()");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause()");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(TAG, "onStop()");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(TAG, "onRestart()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, "onDestroy()");
     }
 }
