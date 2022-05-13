@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="counterViewModel"
             type="ch.hftm.mobilecomputing.CounterViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".OtherActivity">
@@ -17,7 +19,7 @@
             android:id="@+id/buttonGoToMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/go_to_main"
+            android:text="@string/go_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,34 +29,60 @@
             android:id="@+id/buttonStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/start"
+            android:layout_marginBottom="32dp"
             android:enabled="@{!counterViewModel.isCounting}"
+            android:text="@string/start"
+            app:layout_constraintBottom_toTopOf="@+id/textViewCounter"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonGoToMain" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textViewCounter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
             android:text="@{Integer.toString(counterViewModel.counter)}"
+            app:layout_constraintBottom_toTopOf="@+id/buttonStop"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.476"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonStart" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/buttonStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/stop"
+            android:layout_marginBottom="32dp"
             android:enabled="@{counterViewModel.isCounting}"
+            android:text="@string/stop"
+            app:layout_constraintBottom_toTopOf="@+id/buttonGoToMain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCounter" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonGoToMain">
+
+            <Button
+                android:id="@+id/buttonPlay"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/play" />
+
+            <Button
+                android:id="@+id/buttonPause"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/stop" />
+
+        </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

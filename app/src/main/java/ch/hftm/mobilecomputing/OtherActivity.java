@@ -24,15 +24,27 @@ public class OtherActivity extends AppCompatActivity {
         binding.setLifecycleOwner(this);
         binding.setCounterViewModel(this.counterViewModel);
 
-        findViewById(R.id.buttonGoToMain).setOnClickListener(this::goToMain);
         findViewById(R.id.buttonStart).setOnClickListener((v) -> this.counterViewModel.onStart());
         findViewById(R.id.buttonStop).setOnClickListener((v) -> this.counterViewModel.onStop());
+
+        findViewById(R.id.buttonGoToMain).setOnClickListener(this::goToMain);
+
+        findViewById(R.id.buttonPlay).setOnClickListener(this::startMusic);
+        findViewById(R.id.buttonPause).setOnClickListener(this::stopMusic);
 
         this.startCountLoop();
     }
 
-    public void goToMain(View view) {
-        startActivity(new Intent(this, MainActivity.class));
+    private void goToMain(View view) {
+        finish();
+    }
+
+    private void startMusic(View view) {
+        startService(new Intent(this, MusicService.class).setAction(MusicService.ACTION_START));
+    }
+
+    private void stopMusic(View view) {
+        stopService(new Intent(this, MusicService.class));
     }
 
     private void startCountLoop() {
