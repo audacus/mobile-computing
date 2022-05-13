@@ -3,10 +3,13 @@ package ch.hftm.mobilecomputing;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
+import ch.hftm.mobilecomputing.receiver.PowerManagementReceiver;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
 
         this.editTextLogMessage = findViewById(R.id.editTextLogMessage);
         this.editTextIntentMessage = findViewById(R.id.editTextIntentMessage);
+
+        // register receiver
+        var receiver = new PowerManagementReceiver();
+        registerReceiver(receiver, new IntentFilter(Intent.ACTION_BATTERY_LOW));
+        registerReceiver(receiver, new IntentFilter(Intent.ACTION_POWER_CONNECTED));
+        registerReceiver(receiver, new IntentFilter(Intent.ACTION_POWER_DISCONNECTED));
     }
 
     public void logSomething(View view) {
