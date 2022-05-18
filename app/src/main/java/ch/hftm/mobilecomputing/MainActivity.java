@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToOther(View view) {
-        startActivity(new Intent(this, OtherActivity.class));
+//        startActivity(new Intent(this, OtherActivity.class));
+        startActivity(new Intent(this, GeneratorActivity.class));
     }
 
     private void sendTextIntent() {

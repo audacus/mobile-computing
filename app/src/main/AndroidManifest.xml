@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobilecomputing">
+        <activity
+            android:name=".GeneratorActivity"
+            android:exported="false" />
+
         <receiver
             android:name=".receiver.PowerManagementReceiver"
             android:enabled="true"
