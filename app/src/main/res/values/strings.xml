@@ -11,4 +11,7 @@
     <string name="start">start</string>
     <string name="stop">stop</string>
     <string name="play">play</string>
+    <string name="linear">linear</string>
+    <string name="relative">relative</string>
+    <string name="constraint">constraint</string>
 </resources>

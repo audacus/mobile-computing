@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.imageButtonSendIntent).setOnClickListener(this::sendIntent);
         findViewById(R.id.buttonGoToOther).setOnClickListener(this::goToOther);
 
+        findViewById(R.id.buttonGoToLinearLayout).setOnClickListener(this::goToLinear);
+        findViewById(R.id.buttonGoToRelativeLayout).setOnClickListener(this::goToRelative);
+        findViewById(R.id.buttonGoToConstraintLayout).setOnClickListener(this::goToConstraint);
+
         this.editTextLogMessage = findViewById(R.id.editTextLogMessage);
         this.editTextIntentMessage = findViewById(R.id.editTextIntentMessage);
 
@@ -49,6 +53,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToOther(View view) {
         startActivity(new Intent(this, OtherActivity.class));
+    }
+
+    public void goToLinear(View view) {
+        startActivity(new Intent(this, LinearActivity.class));
+    }
+
+    public void goToRelative(View view) {
+        startActivity(new Intent(this, RelativeActivity.class));
+    }
+
+    public void goToConstraint(View view) {
+        startActivity(new Intent(this, ConstraintActivity.class));
     }
 
     private void sendTextIntent() {
