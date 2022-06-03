@@ -14,4 +14,5 @@
     <string name="linear">linear</string>
     <string name="relative">relative</string>
     <string name="constraint">constraint</string>
+    <string name="image_view_description">description</string>
 </resources>
