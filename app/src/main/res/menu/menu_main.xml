@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuGoToOther"
+        android:title="@string/go_to_other" />
+    <item
+        android:id="@+id/menuGoToPhoto"
+        android:title="@string/go_to_photo" />
+    <item
+        android:id="@+id/menuGoToElements"
+        android:title="@string/go_to_elements" />
+</menu>

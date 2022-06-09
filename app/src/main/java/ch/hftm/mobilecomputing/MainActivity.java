@@ -1,13 +1,16 @@
 package ch.hftm.mobilecomputing;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import ch.hftm.mobilecomputing.receiver.PowerManagementReceiver;
 
@@ -83,6 +86,23 @@ public class MainActivity extends AppCompatActivity {
         textIntent.putExtra(Intent.EXTRA_TEXT, this.editTextIntentMessage.getText().toString());
         textIntent.setType(getString(R.string.mime_text_plain));
         startActivity(textIntent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menuGoToOther) this.goToOther(null);
+        else if (item.getItemId() == R.id.menuGoToPhoto) this.goToPhoto(null);
+        else if (item.getItemId() == R.id.menuGoToElements) this.goToElements(null);
+        else return super.onOptionsItemSelected(item);
+
+        // return true if menu item was handled
+        return true;
     }
 
     @Override
