@@ -1,16 +1,16 @@
 package ch.hftm.mobilecomputing;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -28,23 +28,14 @@ public class ShareActivity extends AppCompatActivity implements ItemsRecyclerVie
         setContentView(R.layout.activity_share);
 
         // setup data
-        this.data = List.of(
-                Map.ofEntries(
-                    Map.entry(DataType.NUMBER, "1"),
-                    Map.entry(DataType.TITLE, "Title 1"),
-                    Map.entry(DataType.DESCRIPTION, "Description 1")
-                ),
-                Map.ofEntries(
-                    Map.entry(DataType.NUMBER, "2"),
-                    Map.entry(DataType.TITLE, "Title 2"),
-                    Map.entry(DataType.DESCRIPTION, "Description 2")
-                ),
-                Map.ofEntries(
-                    Map.entry(DataType.NUMBER, "3"),
-                    Map.entry(DataType.TITLE, "Title 3"),
-                    Map.entry(DataType.DESCRIPTION, "Description 3")
-                )
-        );
+        this.data = new ArrayList<>();
+        for (var i = 0; i < 100; i++) {
+            data.add(Map.ofEntries(
+                    Map.entry(DataType.NUMBER, String.format(Locale.ENGLISH, "%d", i)),
+                    Map.entry(DataType.TITLE, String.format(Locale.ENGLISH, "Title %d", i)),
+                    Map.entry(DataType.DESCRIPTION, String.format(Locale.ENGLISH, "Description %d", i))
+            ));
+        }
 
         // setup recycler view adapter
         var adapter = new ItemsRecyclerViewAdapter(data);
