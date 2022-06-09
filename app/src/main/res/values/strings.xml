@@ -15,4 +15,8 @@
     <string name="relative">relative</string>
     <string name="constraint">constraint</string>
     <string name="image_view_description">description</string>
+    <string name="take_photo">take photo</string>
+    <string name="image_view_photo_description">photo that has been taken</string>
+    <string name="go_to_photo">go to photo</string>
+    <string name="button_image">button image</string>
 </resources>

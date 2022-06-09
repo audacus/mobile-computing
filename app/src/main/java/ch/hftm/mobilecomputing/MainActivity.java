@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonLogSomething).setOnClickListener(this::logSomething);
         findViewById(R.id.imageButtonSendIntent).setOnClickListener(this::sendIntent);
         findViewById(R.id.buttonGoToOther).setOnClickListener(this::goToOther);
+        findViewById(R.id.buttonGoToPhoto).setOnClickListener(this::goToPhoto);
 
         findViewById(R.id.buttonGoToLinearLayout).setOnClickListener(this::goToLinear);
         findViewById(R.id.buttonGoToRelativeLayout).setOnClickListener(this::goToRelative);
@@ -53,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToOther(View view) {
         startActivity(new Intent(this, OtherActivity.class));
+    }
+
+    public void goToPhoto(View view) {
+        startActivity(new Intent(this, PhotoActivity.class));
     }
 
     public void goToLinear(View view) {
