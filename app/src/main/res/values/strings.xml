@@ -19,4 +19,12 @@
     <string name="image_view_photo_description">photo that has been taken</string>
     <string name="go_to_photo">go to photo</string>
     <string name="button_image">button image</string>
+    <string name="go_to_elements">go to elements</string>
+    <string name="red">red</string>
+    <string name="blue">blue</string>
+    <string name="green">green</string>
+    <string name="email">e-mail</string>
+    <string name="birthdate">birthdate</string>
+    <string name="enter_email">enter e-mail</string>
+    <string name="date">date</string>
 </resources>
