@@ -29,4 +29,7 @@
     <string name="date">date</string>
     <string name="compass">compass</string>
     <string name="go_to_compass">go to compass</string>
+    <string name="go_to_sensors">go to sensors</string>
+    <string name="temperature">temperature</string>
+    <string name="light">light</string>
 </resources>

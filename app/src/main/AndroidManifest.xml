@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobilecomputing">
         <activity
+            android:name=".SensorActivity"
+            android:exported="false" />
+        <activity
             android:name=".CompassActivity"
             android:exported="false" />
         <activity
