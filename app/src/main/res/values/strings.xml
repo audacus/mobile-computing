@@ -32,4 +32,11 @@
     <string name="go_to_sensors">go to sensors</string>
     <string name="temperature">temperature</string>
     <string name="light">light</string>
+    <string name="only_coarse">Only coarse location granted. App may not provide whole functionality.</string>
+    <string name="no_location">No location permissions granted. App may not work.</string>
+    <string name="fine_location">Fine location granted. Perfect!</string>
+    <string name="go_to_location">go to location</string>
+    <string name="plus_sign">plus sign</string>
+    <string name="minus_sign">minus sign</string>
+    <string name="location_symbol">location symbol</string>
 </resources>

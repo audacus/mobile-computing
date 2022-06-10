@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonGoToElements).setOnClickListener(this::goToElements);
         findViewById(R.id.buttonGoToCompass).setOnClickListener(this::goToCompass);
         findViewById(R.id.buttonGoToSensors).setOnClickListener(this::goToSensors);
+        findViewById(R.id.buttonGoToLocation).setOnClickListener(this::goToLocation);
 
         findViewById(R.id.buttonGoToLinearLayout).setOnClickListener(this::goToLinear);
         findViewById(R.id.buttonGoToRelativeLayout).setOnClickListener(this::goToRelative);
@@ -79,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, SensorActivity.class));
     }
 
+    public void goToLocation(View view) {
+        startActivity(new Intent(this, LocationActivity.class));
+    }
+
     public void goToLinear(View view) {
         startActivity(new Intent(this, LinearActivity.class));
     }
@@ -100,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
