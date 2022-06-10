@@ -27,4 +27,6 @@
     <string name="birthdate">birthdate</string>
     <string name="enter_email">enter e-mail</string>
     <string name="date">date</string>
+    <string name="compass">compass</string>
+    <string name="go_to_compass">go to compass</string>
 </resources>

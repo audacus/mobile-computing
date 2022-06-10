@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/hello_world"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -33,11 +33,13 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/what_to_log"
+        android:importantForAutofill="no"
         android:inputType="textShortMessage"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/editTextIntentMessage"
@@ -46,23 +48,24 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/what_to_share"
+        android:importantForAutofill="no"
         android:inputType="textShortMessage"
+        android:minHeight="48dp"
         android:text="@string/intent_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLogSomething"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogSomething" />
 
     <ImageButton
         android:id="@+id/imageButtonSendIntent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="@string/button_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextIntentMessage"
-        app:srcCompat="@drawable/ic_launcher_foreground"
-        android:contentDescription="@string/button_image" />
+        app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <Button
         android:id="@+id/buttonGoToOther"
@@ -73,6 +76,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonSendIntent" />
+
+    <Button
+        android:id="@+id/buttonGoToElements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/go_to_elements"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGoToPhoto" />
+
+    <Button
+        android:id="@+id/buttonGoToPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/go_to_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGoToOther" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -109,23 +132,13 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/buttonGoToPhoto"
+        android:id="@+id/buttonGoToCompass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/go_to_photo"
+        android:text="@string/go_to_compass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGoToOther" />
-
-    <Button
-        android:id="@+id/buttonGoToElements"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/go_to_elements"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGoToPhoto" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonGoToElements" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
