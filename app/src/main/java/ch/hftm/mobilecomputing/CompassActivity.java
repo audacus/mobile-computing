@@ -14,6 +14,9 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
+/**
+ * https://developer.android.com/guide/topics/sensors/sensors_position
+ */
 public class CompassActivity extends AppCompatActivity implements SensorEventListener {
 
     private TextView textViewCompassValue360;
@@ -39,6 +42,7 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         this.textViewCompassValue180 = findViewById(R.id.textViewCompassValue180);
         this.imageViewCompass = findViewById(R.id.imageViewCompass);
 
+        // set different compass image depending on night mode on / off
         var nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
         if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
             this.imageViewCompass.setImageResource(R.drawable.compass_white);
@@ -51,9 +55,11 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
     protected void onResume() {
         super.onResume();
 
+        // listen for acceleration
         var accelerometer = this.sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         if (accelerometer != null) this.sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
 
+        // listen for magnetic field
         var magneticField = this.sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         if (magneticField != null) this.sensorManager.registerListener(this, magneticField, SensorManager.SENSOR_DELAY_NORMAL);
     }
