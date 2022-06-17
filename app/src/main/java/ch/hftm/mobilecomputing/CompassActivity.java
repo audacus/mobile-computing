@@ -56,14 +56,6 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         seekBarSmoothingFactor.setMax(SEEK_BAR_MAX_VALUE - SEEK_BAR_MIN_VALUE);
         seekBarSmoothingFactor.setOnSeekBarChangeListener(this);
         seekBarSmoothingFactor.setProgress((int) (seekBarSmoothingFactor.getMax() * 0.6));
-
-        // set different compass image depending on night mode on / off
-        var nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
-            this.imageViewCompass.setImageResource(R.drawable.compass_white);
-        } else {
-            this.imageViewCompass.setImageResource(R.drawable.compass_black);
-        }
     }
 
     @Override
