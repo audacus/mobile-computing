@@ -39,4 +39,5 @@
     <string name="plus_sign">plus sign</string>
     <string name="minus_sign">minus sign</string>
     <string name="location_symbol">location symbol</string>
+    <string name="go_to_network">go to network</string>
 </resources>

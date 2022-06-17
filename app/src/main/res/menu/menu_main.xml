@@ -10,4 +10,16 @@
     <item
         android:id="@+id/menuGoToElements"
         android:title="@string/go_to_elements" />
+    <item
+        android:id="@+id/menuGoToCompass"
+        android:title="@string/go_to_compass" />
+    <item
+        android:id="@+id/menuGoToSensors"
+        android:title="@string/go_to_sensors" />
+    <item
+        android:id="@+id/menuGoToLocation"
+        android:title="@string/go_to_location" />
+    <item
+        android:id="@+id/menuGoToNetwork"
+        android:title="@string/go_to_network" />
 </menu>

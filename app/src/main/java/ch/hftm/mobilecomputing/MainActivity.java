@@ -31,13 +31,6 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonLogSomething).setOnClickListener(this::logSomething);
         findViewById(R.id.imageButtonSendIntent).setOnClickListener(this::sendIntent);
 
-        findViewById(R.id.buttonGoToOther).setOnClickListener(this::goToOther);
-        findViewById(R.id.buttonGoToPhoto).setOnClickListener(this::goToPhoto);
-        findViewById(R.id.buttonGoToElements).setOnClickListener(this::goToElements);
-        findViewById(R.id.buttonGoToCompass).setOnClickListener(this::goToCompass);
-        findViewById(R.id.buttonGoToSensors).setOnClickListener(this::goToSensors);
-        findViewById(R.id.buttonGoToLocation).setOnClickListener(this::goToLocation);
-
         findViewById(R.id.buttonGoToLinearLayout).setOnClickListener(this::goToLinear);
         findViewById(R.id.buttonGoToRelativeLayout).setOnClickListener(this::goToRelative);
         findViewById(R.id.buttonGoToConstraintLayout).setOnClickListener(this::goToConstraint);
@@ -84,6 +77,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, LocationActivity.class));
     }
 
+    public void goToNetwork(View view) {
+        startActivity(new Intent(this, NetworkActivity.class));
+    }
+
     public void goToLinear(View view) {
         startActivity(new Intent(this, LinearActivity.class));
     }
@@ -115,6 +112,10 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.menuGoToOther) this.goToOther(null);
         else if (item.getItemId() == R.id.menuGoToPhoto) this.goToPhoto(null);
         else if (item.getItemId() == R.id.menuGoToElements) this.goToElements(null);
+        else if (item.getItemId() == R.id.menuGoToCompass) this.goToCompass(null);
+        else if (item.getItemId() == R.id.menuGoToSensors) this.goToSensors(null);
+        else if (item.getItemId() == R.id.menuGoToLocation) this.goToLocation(null);
+        else if (item.getItemId() == R.id.menuGoToNetwork) this.goToNetwork(null);
         else return super.onOptionsItemSelected(item);
 
         // return true if menu item was handled
