@@ -116,14 +116,15 @@ public class LocationActivity extends AppCompatActivity implements LocationListe
 
     @Override
     public void onLocationChanged(@NonNull Location location) {
+        this.mapManager.setUserPosition(location.getLatitude(), location.getLongitude(), this.lastLocation == null);
         this.lastLocation = location;
-        this.mapManager.setUserPosition(location.getLatitude(), location.getLongitude(), true);
     }
 
     @Override
     public void onProviderDisabled(@NonNull String provider) {
         this.locationManager.removeUpdates(this);
         this.mapManager.removeCurrentIcons();
+        this.lastLocation = null;
         this.registerLocationListener(true);
     }
 
