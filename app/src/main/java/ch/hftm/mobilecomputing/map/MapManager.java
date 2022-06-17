@@ -68,10 +68,14 @@ public class MapManager {
         this.mainMap.addLayer(this.iconLayer.asLayerInterface());
 
         if (flyToPosition) {
-            this.mainMap.getCamera().moveToCenterPositionZoom(
-                    new Coord(CoordinateSystemIdentifiers.EPSG4326(), lon, lat, 0.0),
-                    25000.0, false);
+            this.flyToPosition(lat, lon);
         }
+    }
+
+    public void flyToPosition(double lat, double lon) {
+        this.mainMap.getCamera().moveToCenterPositionZoom(
+                new Coord(CoordinateSystemIdentifiers.EPSG4326(), lon, lat, 0.0),
+                25000.0, false);
     }
 
     public void zoomIn() {
@@ -88,8 +92,7 @@ public class MapManager {
         }
     }
 
-
-    private void removeCurrentIcons() {
+    public void removeCurrentIcons() {
         for (var i : this.iconLayer.getIcons()) {
             this.iconLayer.remove(i);
         }
