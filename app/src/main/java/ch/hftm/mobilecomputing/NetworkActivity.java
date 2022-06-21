@@ -3,16 +3,28 @@ package ch.hftm.mobilecomputing;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.net.MalformedURLException;
 import java.net.NetworkInterface;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
+
+import javax.net.ssl.HttpsURLConnection;
+
+import ch.hftm.mobilecomputing.entity.Comment;
 
 public class NetworkActivity extends AppCompatActivity {
 
@@ -20,6 +32,7 @@ public class NetworkActivity extends AppCompatActivity {
 
     private TextView textViewPort;
     private TextView textViewMessages;
+    private TextView textViewHttpResult;
 
     private final StringBuilder message = new StringBuilder();
 
@@ -55,12 +68,58 @@ public class NetworkActivity extends AppCompatActivity {
             ipAddressesText.append(ipAddress).append("\n");
         }
 
+        findViewById(R.id.buttonSendHttp).setOnClickListener(this::onSendHttp);
+
         ((TextView) findViewById(R.id.textViewAddresses)).setText(ipAddressesText.toString());
 
         this.textViewPort = findViewById(R.id.textViewPort);
         this.textViewMessages = findViewById(R.id.textViewMessages);
+        this.textViewHttpResult = findViewById(R.id.textViewHttpResult);
 
         new ServerSocketThread().start();
+    }
+
+    private void onSendHttp(View view) {
+        var input = ((EditText) findViewById(R.id.editTextTextUrl)).getText().toString();
+
+        if (input.isEmpty()) return;
+
+        // run networking on separate thread
+        new Thread(() -> {
+            try {
+                var url = new URL(input);
+                var connection = (HttpsURLConnection) url.openConnection();
+                var responseCode = connection.getResponseCode();
+
+                if (responseCode != HttpsURLConnection.HTTP_OK) return;
+
+                // read response
+                var reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                var responseTextBuilder = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    responseTextBuilder.append(line);
+                }
+                reader.close();
+                connection.disconnect();
+
+                var responseText = responseTextBuilder.toString();
+
+                // parse response to json
+                var gson = new Gson();
+                var comment = gson.fromJson(responseText, Comment.class);
+
+                if (comment.getUser() == null) throw new Exception(String.format("%s:\n\n%s", getString(R.string.error_parse_response_into_comment), responseText));
+
+                var message = String.format(Locale.ENGLISH, "%s: «%s»", comment.getUser().getUsername(), comment.getBody());
+
+                runOnUiThread(() -> this.textViewHttpResult.setText(message));
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                runOnUiThread(() -> this.textViewHttpResult.setText(e.getMessage()));
+            }
+        }).start();
     }
 
     private class ServerSocketThread extends Thread {

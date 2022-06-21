@@ -40,4 +40,6 @@
     <string name="minus_sign">minus sign</string>
     <string name="location_symbol">location symbol</string>
     <string name="go_to_network">go to network</string>
+    <string name="send_http">send http</string>
+    <string name="error_parse_response_into_comment">could not parse response into comment</string>
 </resources>
