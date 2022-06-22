@@ -76,16 +76,10 @@
                 android:text="@string/create_event" />
 
             <TextView
-                android:id="@+id/textViewApiResultLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/response" />
-
-            <TextView
                 android:id="@+id/textViewApiResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:fontFamily="monospace" />
 
         </LinearLayout>

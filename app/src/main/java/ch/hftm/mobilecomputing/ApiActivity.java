@@ -44,7 +44,7 @@ public class ApiActivity extends AppCompatActivity {
 
         @Override
         public void onFailure(@NonNull Call<Event> call, @NonNull Throwable t) {
-            Log.e(MainActivity.TAG, Objects.requireNonNull(t.getCause()).getMessage());
+            textViewApiResult.setText(Objects.requireNonNull(t.getCause()).getMessage());
         }
     };
 
@@ -95,12 +95,16 @@ public class ApiActivity extends AppCompatActivity {
 
     private void onCreateEvent(View view) {
         var input = ((EditText) findViewById(R.id.editTextMultilineEvent)).getText().toString();
-        var event = new GsonBuilder()
-                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-                .create()
-                .fromJson(input, Event.class);
+        try {
+            var event = new GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+                    .create()
+                    .fromJson(input, Event.class);
 
-        EventRepository.getInstance().addEvent(event, this.printResponseJsonCallback);
+            EventRepository.getInstance().addEvent(event, this.printResponseJsonCallback);
+        } catch (Exception e) {
+            textViewApiResult.setText(Objects.requireNonNull(e.getCause()).getMessage());
+        }
     }
 
     private void onDeleteEvent(View view) {
