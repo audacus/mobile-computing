@@ -1,4 +1,4 @@
-package ch.hftm.mobilecomputing.viewadapter;
+package ch.hftm.mobilecomputing.adapter;
 
 import android.util.Log;
 import android.view.LayoutInflater;

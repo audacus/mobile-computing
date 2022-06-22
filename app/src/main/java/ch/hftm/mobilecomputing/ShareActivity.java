@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import ch.hftm.mobilecomputing.viewadapter.ItemsRecyclerViewAdapter;
-import ch.hftm.mobilecomputing.viewadapter.ItemsRecyclerViewAdapter.DataType;
+import ch.hftm.mobilecomputing.adapter.ItemsRecyclerViewAdapter;
+import ch.hftm.mobilecomputing.adapter.ItemsRecyclerViewAdapter.DataType;
 
 public class ShareActivity extends AppCompatActivity implements ItemsRecyclerViewAdapter.ItemClickListener {
 

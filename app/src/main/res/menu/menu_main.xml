@@ -22,4 +22,7 @@
     <item
         android:id="@+id/menuGoToNetwork"
         android:title="@string/go_to_network" />
+    <item
+        android:id="@+id/menuGoToApi"
+        android:title="@string/go_to_api" />
 </menu>

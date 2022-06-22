@@ -42,4 +42,11 @@
     <string name="go_to_network">go to network</string>
     <string name="send_http">send http</string>
     <string name="error_parse_response_into_comment">could not parse response into comment</string>
+    <string name="json_example_event">{\n\"title\": \"fancy festival\",\n\"startDate\": \"2022-06-23T00:15:00\",\n\"endDate\": \"2022-06-24T15:00:00\",\n\"description\": \"hands down the best festival\",\n\"minPeople\": 42,\n\"maxPeople\": 1337,\n\"picture\": 2131165298,\n\"rating\": 9001\n}</string>
+    <string name="create_event">create event</string>
+    <string name="go_to_api">go to api</string>
+    <string name="load_events">load events</string>
+    <string name="response">response:</string>
+    <string name="get_event">get event</string>
+    <string name="delete_event">delete event</string>
 </resources>
