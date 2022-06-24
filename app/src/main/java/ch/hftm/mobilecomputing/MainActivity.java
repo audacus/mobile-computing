@@ -85,6 +85,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, ApiActivity.class));
     }
 
+    public void goToWeb(View view) {
+        startActivity(new Intent(this, WebViewActivity.class));
+    }
+
     public void goToLinear(View view) {
         startActivity(new Intent(this, LinearActivity.class));
     }
@@ -121,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         else if (item.getItemId() == R.id.menuGoToLocation) this.goToLocation(null);
         else if (item.getItemId() == R.id.menuGoToNetwork) this.goToNetwork(null);
         else if (item.getItemId() == R.id.menuGoToApi) this.goToApi(null);
+        else if (item.getItemId() == R.id.menuGoToWeb) this.goToWeb(null);
         else return super.onOptionsItemSelected(item);
 
         // return true if menu item was handled

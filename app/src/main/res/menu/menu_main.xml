@@ -25,4 +25,7 @@
     <item
         android:id="@+id/menuGoToApi"
         android:title="@string/go_to_api" />
+    <item
+        android:id="@+id/menuGoToWeb"
+        android:title="@string/go_to_web" />
 </menu>

@@ -20,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobilecomputing">
         <activity
+            android:name=".WebViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".ApiActivity"
             android:exported="false" />
         <activity
