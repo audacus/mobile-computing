@@ -108,9 +108,9 @@ public class NetworkActivity extends AppCompatActivity {
                 var gson = new Gson();
                 var comment = gson.fromJson(responseText, Comment.class);
 
-                if (comment.getUser() == null) throw new Exception(String.format("%s:\n\n%s", getString(R.string.error_parse_response_into_comment), responseText));
+                if (comment.getAuthor() == null) throw new Exception(String.format("%s:\n\n%s", getString(R.string.error_parse_response_into_comment), responseText));
 
-                var message = String.format(Locale.ENGLISH, "%s: «%s»", comment.getUser().getUsername(), comment.getBody());
+                var message = String.format(Locale.ENGLISH, "%s: «%s»", comment.getAuthor().getName(), comment.getBody());
 
                 runOnUiThread(() -> this.textViewHttpResult.setText(message));
 

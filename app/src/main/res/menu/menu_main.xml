@@ -28,4 +28,7 @@
     <item
         android:id="@+id/menuGoToWeb"
         android:title="@string/go_to_web" />
+    <item
+        android:id="@+id/menuGoToEditor"
+        android:title="@string/go_to_editor" />
 </menu>

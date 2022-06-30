@@ -1,23 +1,18 @@
 package ch.hftm.mobilecomputing.entity;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class User {
 
-    private Integer id;
-    private String username;
+    @PrimaryKey
+    public int id;
 
-    public Integer getId() {
-        return id;
-    }
+    @ColumnInfo(name = "first_name")
+    public String firstName;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    @ColumnInfo(name = "last_name")
+    public String lastName;
 }

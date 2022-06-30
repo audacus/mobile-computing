@@ -5,7 +5,7 @@ public class Comment {
     private Integer id;
     private String body;
     private Integer postId;
-    private User user;
+    private Author author;
 
     public Integer getId() {
         return id;
@@ -31,11 +31,11 @@ public class Comment {
         this.postId = postId;
     }
 
-    public User getUser() {
-        return user;
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 }

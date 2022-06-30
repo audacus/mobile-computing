@@ -50,4 +50,15 @@
     <string name="get_event">get event</string>
     <string name="delete_event">delete event</string>
     <string name="go_to_web">go to web</string>
+    <string name="editor_shared_preference">editor_shared_preference</string>
+    <string name="preferences">preferences</string>
+    <string name="file">file</string>
+    <string name="database">database</string>
+    <string name="save_to">save to</string>
+    <string name="load_from">load from</string>
+    <string name="editor_content">editor_content</string>
+    <string name="go_to_editor">go to editor</string>
+    <string name="editor_file">editor_file.txt</string>
+    <string name="database_editor">editor-database</string>
+    <string name="clear">clear</string>
 </resources>
