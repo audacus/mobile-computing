@@ -16,14 +16,12 @@ public class UserRepository {
 
     private final LiveData<User> currentUser;
     private final LiveData<List<User>> users;
-    private final LiveData<Integer> count;
 
     public UserRepository(Application application) {
         var database = AppDatabase.getDatabase(application);
         this.userDao = database.userDao();
         this.currentUser = this.userDao.getLast();
         this.users = this.userDao.getAll();
-        this.count = this.userDao.getCount();
     }
 
     public LiveData<User> getLast() {
@@ -32,10 +30,6 @@ public class UserRepository {
 
     public LiveData<List<User>> getUsers() {
         return this.users;
-    }
-
-    public LiveData<Integer> getCount() {
-        return this.count;
     }
 
     public void insert(User user) {

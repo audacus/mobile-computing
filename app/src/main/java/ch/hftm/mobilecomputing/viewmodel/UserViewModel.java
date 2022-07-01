@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
 
@@ -17,14 +18,18 @@ public class UserViewModel extends AndroidViewModel {
 
     private final LiveData<User> currentUser;
     private final LiveData<List<User>> users;
-    private final LiveData<Integer> count;
+
+    private final MutableLiveData<Integer> count;
 
     public UserViewModel(@NonNull Application application) {
         super(application);
         this.repository = new UserRepository(application);
         this.currentUser = this.repository.getLast();
         this.users = this.repository.getUsers();
-        this.count = this.repository.getCount();
+
+        this.count = new MutableLiveData<>();
+
+        this.users.observeForever((users) -> this.count.setValue(users.size()));
     }
 
     public LiveData<User> getLast() {

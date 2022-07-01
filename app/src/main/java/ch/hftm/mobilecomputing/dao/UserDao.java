@@ -16,9 +16,6 @@ public interface UserDao {
     @Query("select * from user order by id")
     LiveData<List<User>> getAll();
 
-    @Query("select count(*) from user")
-    LiveData<Integer> getCount();
-
     @Query("select * from user where id in (:ids) order by id")
     List<User> loadAllByIds(int[] ids);
 
