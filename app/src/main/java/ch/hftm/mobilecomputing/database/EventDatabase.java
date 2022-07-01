@@ -7,5 +7,5 @@ import ch.hftm.mobilecomputing.entity.Event;
 
 public class EventDatabase {
 
-    public static List<Event> events = new ArrayList<>();
+    public static final List<Event> events = new ArrayList<>();
 }

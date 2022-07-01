@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel;
 
 public class CounterViewModel extends ViewModel {
 
-    public MutableLiveData<Boolean> isCounting = new MutableLiveData<>(false);
-    public MutableLiveData<Integer> counter = new MutableLiveData<>(0);
+    public final MutableLiveData<Boolean> isCounting = new MutableLiveData<>(false);
+    public final MutableLiveData<Integer> counter = new MutableLiveData<>(0);
 
     public void onStart() {
         this.isCounting.setValue(true);
@@ -17,6 +17,10 @@ public class CounterViewModel extends ViewModel {
     }
 
     public void countUp() {
-        this.counter.setValue(this.counter.getValue() + 1);
+        var value = this.counter.getValue();
+
+        if (value == null) value = 0;
+
+        this.counter.setValue(value + 1);
     }
 }

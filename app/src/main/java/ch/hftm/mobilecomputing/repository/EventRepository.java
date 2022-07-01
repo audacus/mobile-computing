@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -71,10 +70,5 @@ public class EventRepository {
 
     public void deleteEvent(String id, Callback<Event> callback) {
         this.apiService.deleteEvent(id).enqueue(callback);
-    }
-
-    private void updateDatabase() {
-        EventDatabase.events.clear();
-        EventDatabase.events.addAll(Objects.requireNonNull(events.getValue()));
     }
 }

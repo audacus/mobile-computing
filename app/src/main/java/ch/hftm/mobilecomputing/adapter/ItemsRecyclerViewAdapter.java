@@ -18,7 +18,7 @@ import ch.hftm.mobilecomputing.R;
 public class ItemsRecyclerViewAdapter extends RecyclerView.Adapter<ItemsRecyclerViewAdapter.ItemsViewHolder> {
 
     private ItemClickListener itemClickListener;
-    private List<Map<DataType, String>> data;
+    private final List<Map<DataType, String>> data;
 
     public ItemsRecyclerViewAdapter(List<Map<DataType, String>> data) {
         this.data = data;
@@ -65,9 +65,9 @@ public class ItemsRecyclerViewAdapter extends RecyclerView.Adapter<ItemsRecycler
 
     public class ItemsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public TextView textViewItemNumber;
-        public TextView textViewItemTitle;
-        public TextView textViewItemDescription;
+        public final TextView textViewItemNumber;
+        public final TextView textViewItemTitle;
+        public final TextView textViewItemDescription;
 
         public ItemsViewHolder(View itemView) {
             super(itemView);
