@@ -113,17 +113,51 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewUsers"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textViewClear"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:text="@string/clear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonClearDatabase"
-        tools:listitem="@layout/recycler_view_item_user" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutSave" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutClear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewClear">
+
+        <Button
+            android:id="@+id/buttonClearPreferences"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="@string/preferences" />
+
+        <Button
+            android:id="@+id/buttonClearFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="@string/file" />
+
+        <Button
+            android:id="@+id/buttonClearDatabase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/database" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textViewDatabaseCount"
@@ -133,15 +167,19 @@
         android:text="-"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutSave" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutClear" />
 
-    <Button
-        android:id="@+id/buttonClearDatabase"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewUsers"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="@string/clear"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDatabaseCount" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewDatabaseCount"
+        tools:listitem="@layout/recycler_view_item_user" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

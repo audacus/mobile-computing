@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -45,13 +46,19 @@ public class EditorActivity extends AppCompatActivity {
         this.editTextEditorContent = findViewById(R.id.editTextEditorContent);
         this.textViewDatabaseCount = findViewById(R.id.textViewDatabaseCount);
 
+        // load
         findViewById(R.id.buttonLoadFromPreferences).setOnClickListener(this::onLoadFromPreferences);
         findViewById(R.id.buttonLoadFromFile).setOnClickListener(this::onLoadFromFile);
         findViewById(R.id.buttonLoadFromDatabase).setOnClickListener(this::onLoadFromDatabase);
 
+        // save to
         findViewById(R.id.buttonSaveToPreferences).setOnClickListener(this::onSaveToPreferences);
         findViewById(R.id.buttonSaveToFile).setOnClickListener(this::onSaveToFile);
         findViewById(R.id.buttonSaveToDatabase).setOnClickListener(this::onSaveToDatabase);
+
+        // clear
+        findViewById(R.id.buttonClearPreferences).setOnClickListener(this::onClearPreferences);
+        findViewById(R.id.buttonClearFile).setOnClickListener(this::onClearFile);
         findViewById(R.id.buttonClearDatabase).setOnClickListener(this::onClearDatabase);
 
         this.preferences = getSharedPreferences(getString(R.string.editor_shared_preference), Context.MODE_PRIVATE);
@@ -123,7 +130,9 @@ public class EditorActivity extends AppCompatActivity {
 
     private void onSaveToPreferences(View view) {
         var content = this.editTextEditorContent.getText().toString();
-        this.preferences.edit().putString(getString(R.string.editor_content), content).apply();
+        this.preferences.edit()
+                .putString(getString(R.string.editor_content), content)
+                .apply();
 
         Toast.makeText(this, "saved to preferences", Toast.LENGTH_SHORT).show();
     }
@@ -177,7 +186,30 @@ public class EditorActivity extends AppCompatActivity {
         });
     }
 
+    private void onClearPreferences(View view) {
+        this.preferences.edit()
+                .clear()
+                .apply();
+
+        Toast.makeText(this, "preferences cleared", Toast.LENGTH_SHORT).show();
+    }
+
+    private void onClearFile(View view) {
+        var file = new File(getFilesDir(), getString(R.string.editor_file));
+
+        if (!file.exists()) {
+            Toast.makeText(this, "file doesn't exist", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (file.delete()) Toast.makeText(this, "file deleted", Toast.LENGTH_SHORT).show();
+        else Toast.makeText(this, "could not delete file", Toast.LENGTH_SHORT).show();
+
+    }
+
     private void onClearDatabase(View view) {
         AppDatabase.executor.execute(() -> this.database.clearAllTables());
+
+        Toast.makeText(this, "database cleared", Toast.LENGTH_SHORT).show();
     }
 }
